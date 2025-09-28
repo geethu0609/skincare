@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/skincare/static/css/main.a783c37a.css",
+    "main.js": "/skincare/static/js/main.2c150328.js",
+    "static/js/453.670e15c7.chunk.js": "/skincare/static/js/453.670e15c7.chunk.js",
+    "index.html": "/skincare/index.html",
+    "main.a783c37a.css.map": "/skincare/static/css/main.a783c37a.css.map",
+    "main.2c150328.js.map": "/skincare/static/js/main.2c150328.js.map",
+    "453.670e15c7.chunk.js.map": "/skincare/static/js/453.670e15c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a783c37a.css",
+    "static/js/main.2c150328.js"
+  ]
+}
