@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext"; // adjust path if needed
 import "./Search.css";
 
 const productsData = [
-  { id: 1, name: "Glow Face Wash", category: "Face Wash", price: 299, image: "/images/facewash1.jpg" },
-  { id: 2, name: "Hydrating Moisturizer", category: "Moisturizer", price: 499, image: "/images/moisturizer1.jpg" },
-  { id: 3, name: "Sun Shield SPF50", category: "Sunscreen", price: 399, image: "/images/sunscreen1.jpg" },
-  { id: 4, name: "Vitamin C Serum", category: "Serum", price: 699, image: "/images/serum1.jpg" },
-  { id: 5, name: "Purifying Face Wash", category: "Face Wash", price: 350, image: "/images/facewash2.jpg" },
-  { id: 6, name: "Nourishing Moisturizer", category: "Moisturizer", price: 550, image: "/images/moisturizer2.jpg" },
-  { id: 7, name: "Daily Sunscreen SPF30", category: "Sunscreen", price: 299, image: "/images/sunscreen2.jpg" },
-  { id: 8, name: "Hyaluronic Acid Serum", category: "Serum", price: 799, image: "/images/serum2.jpg" },
+  { id: 1, name: "Glow Face Wash", category: "Face Wash", price: 299, image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQdms7mZaJOhuA91v2EdgNqefkYuxr02uQg0HJ_7jcJuLT-mIUeWY8njrlpOSdVyae15TQL6Ue64asXPGCkL5dCuZd6OdmEdWRXw8pL6xayiZL8-n8QyH3C_w&usqp=CAc" },
+  { id: 2, name: "Hydrating Moisturizer", category: "Moisturizer", price: 499, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2OVyQWlmP8tKwQXmUkq28CxTAdTwZ2ysZw&s" },
+  { id: 3, name: "Sun Shield SPF50", category: "Sunscreen", price: 399, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJWFF3_qyRH_QL6H7SKWcJSNwha2D435rnoA&s" },
+  { id: 4, name: "Vitamin C Serum", category: "Serum", price: 699, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxipUJ7y0gGChgfIglGN6s90uvotYlpUGYOg&s" },
+  { id: 5, name: "Purifying Face Wash", category: "Face Wash", price: 350, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOYGP8TB9UsjuhTFUrg5hKXcVjMdzMY8MVU94IK0s-DE0Q8C4yBxIMC1c&s" },
+  { id: 6, name: "Nourishing Moisturizer", category: "Moisturizer", price: 550, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgT2uM82-nq65AyklR7t6cN9B-RHZ6yaJdSQ&s" },
+  { id: 7, name: "Daily Sunscreen SPF30", category: "Sunscreen", price: 299, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdtiOQtIgBKobtn12a-QRQ1dAJeK1kkp5FXQ&s" },
+  { id: 8, name: "Hyaluronic Acid Serum", category: "Serum", price: 799, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1q911qLPnD-34eE1dQTgTrw035rgV35NObw&s" },
 ];
 
 const categories = ["All", "Face Wash", "Moisturizer", "Sunscreen", "Serum"];
@@ -19,28 +19,16 @@ const Search = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [cart, setCart] = useState([]); // store cart items
 
-  const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext); 
 
   const handleCategoryChange = (category) => setSelectedCategory(category);
   const handlePriceChange = (e) => setPriceRange([0, Number(e.target.value)]);
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
   const handleBuyNow = (product) => {
-    setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.id === product.id);
-      if (existing) {
-        // increase quantity if product already in cart
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevCart, { ...product, quantity: 1 }];
-      }
-    });
-    // Redirect to Cart page with cart data
-    navigate("/cart", { state: { cart } });
+    addToCart(product); 
+    alert(`${product.name} added to cart!`);
   };
 
   const filteredProducts = productsData.filter(
@@ -55,7 +43,7 @@ const Search = () => {
     <div className="search-container">
       <h1>Our Products</h1>
 
-      {/* Search Bar */}
+      {}
       <div className="search-bar">
         <input
           type="text"
@@ -65,6 +53,7 @@ const Search = () => {
         />
       </div>
 
+      {}
       <div className="filters">
         <div className="category-filter">
           <h3>Filter by Category</h3>
@@ -95,6 +84,7 @@ const Search = () => {
         </div>
       </div>
 
+      {/*  Product list */}
       <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
@@ -103,7 +93,9 @@ const Search = () => {
               <h4>{product.name}</h4>
               <p>{product.category}</p>
               <p className="price">₹{product.price}</p>
-              <button className="buy-btn" onClick={() => handleBuyNow(product)}>Buy Now</button>
+              <button className="buy-btn" onClick={() => handleBuyNow(product)}>
+                Buy Now
+              </button>
             </div>
           ))
         ) : (

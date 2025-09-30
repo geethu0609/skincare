@@ -1,5 +1,9 @@
 import React from "react";
-import "./About.css"; // Make sure this CSS file exists
+import "./About.css";
+
+import myself from "../assets/myself.jpg";
+import niki3 from "../assets/niki3.jpg";
+import kani from "../assets/Kani.jpg";
 
 const About = () => {
   return (
@@ -20,7 +24,11 @@ const About = () => {
           </p>
         </div>
         <div className="story-image">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUJ3IAyPqwa1s-qcwCp-Mz6pas5hcKVFalbA&s" alt="Our Story" />
+          {}
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUJ3IAyPqwa1s-qcwCp-Mz6pas5hcKVFalbA&s"
+            alt="Our Story"
+          />
         </div>
       </section>
 
@@ -37,17 +45,17 @@ const About = () => {
         <h2>Meet the Team</h2>
         <div className="team-cards">
           <div className="team-card">
-            <img src="/images/myself.jpg" alt="Founder" />
+            <img src={myself} alt="Founder" />
             <h3>Geethu Priya J</h3>
             <p>Founder & CEO</p>
           </div>
           <div className="team-card">
-            <img src="/images/niki3.jpg" alt="Co-Founder" />
+            <img src={niki3} alt="Co-Founder" />
             <h3>Nikhil Kumar</h3>
             <p>Co-Founder & Product Lead</p>
           </div>
           <div className="team-card">
-            <img src="/images/kani.jpg" alt="Skin Expert" />
+            <img src={kani} alt="Skin Expert" />
             <h3>Kanishka Sharma</h3>
             <p>Skin Specialist</p>
           </div>

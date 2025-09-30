@@ -1,30 +1,22 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
+// Import images
+import banner1 from "../assets/banner1.jpg";
+import banner2 from "../assets/banner2.png";
+import banner3 from "../assets/banner3.jpg";
+
 const Banner = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block"
-           style={{ width: "100%" }}
-          src="/images/banner1.jpg"
-          alt="First slide"
-        />
+        <img className="d-block w-100" src={banner1} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-            src="/images/banner2.png"
-          alt="Second slide"
-        />
+        <img className="d-block w-100" src={banner2} alt="Second slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/images/banner3.jpg"
-          alt="Third slide"
-        />
+        <img className="d-block w-100" src={banner3} alt="Third slide" />
       </Carousel.Item>
     </Carousel>
   );

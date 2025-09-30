@@ -19,7 +19,7 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div> 
       <Banner />
       <ProductSection title="Top Brands" products={topBrands} />
       <ProductSection title="Best Sellers" products={bestSellers} />
