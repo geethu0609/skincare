@@ -1,9 +1,9 @@
 import React from "react";
 import "./About.css";
 
-import myself from "../assets/myself.jpg";
-import niki3 from "../assets/niki3.jpg";
-import kani from "../assets/Kani.jpg";
+import lingesh from "../assets/lingesh.jpg";
+import sreeKumaran from "../assets/sree-kumaran.jpg";
+import niranjanBalaji from "../assets/niranjan-balaji.jpg";
 
 const About = () => {
   return (
@@ -45,18 +45,22 @@ const About = () => {
         <h2>Meet the Team</h2>
         <div className="team-cards">
           <div className="team-card">
-            <img src={myself} alt="Founder" />
-            <h3>Geethu Priya J</h3>
+            <img src={lingesh} alt="Lingesh Ram" />
+            <h3>Lingesh Ram</h3>
             <p>Founder & CEO</p>
           </div>
           <div className="team-card">
-            <img src={niki3} alt="Co-Founder" />
-            <h3>Nikhil Kumar</h3>
+            <img src={sreeKumaran} alt="Sree Kumaran" />
+            <h3>Sree Kumaran</h3>
             <p>Co-Founder & Product Lead</p>
           </div>
           <div className="team-card">
-            <img src={kani} alt="Skin Expert" />
-            <h3>Kanishka Sharma</h3>
+            <img
+              src={niranjanBalaji}
+              alt="Niranjan Balaji"
+              style={{ objectPosition: "center 22%" }}
+            />
+            <h3>Niranjan Balaji</h3>
             <p>Skin Specialist</p>
           </div>
         </div>

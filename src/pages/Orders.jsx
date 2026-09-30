@@ -7,7 +7,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // If navigating from Payment page, add the order to orders
+
     if (location.state?.totalPrice && location.state?.cartItems) {
       const newOrder = {
         id: Date.now(),

@@ -1,4 +1,4 @@
-// src/components/Payment.jsx
+
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Payment.css";
@@ -14,12 +14,14 @@ const Payment = () => {
       <p>Total Amount: ₹{total}</p>
 
       <div className="qr-section">
+      <img
+  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dgeethu.060906%40okicici%26pn%3DGeethuShop%26am%3D100%26cu%3DINR"
+  alt="QR Code"
+  class="qr-code"
+/>
+
         <p>Scan this QR code to complete your payment:</p>
-        <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=merchant@upi&pn=MyShop&am=100&cu=INR"
-          alt="QR Code"
-          className="qr-code"
-        />
+      
       </div>
 
       <button className="back-btn" onClick={() => navigate("/")}>

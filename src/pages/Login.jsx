@@ -9,7 +9,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For now, just redirect to Home without validation
     navigate("/home");
   };
 
